@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ログイン</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --bg: #131019;
+    --bg-2: #1a1624;
+    --ink: #f4f1fb;
+    --ink-dim: #948da8;
+    --ink-faint: #6b6480;
+    --accent: #7c5cff;
+    --accent-hover: #8e70ff;
+    --accent-soft: rgba(124,92,255,0.14);
+    --field-bg: #1c1826;
+    --field-border: #322c44;
+    --field-border-focus: #7c5cff;
+    --danger: #ff6f8f;
+    box-sizing:border-box;
+  }
+  *{ box-sizing:inherit; -webkit-tap-highlight-color: transparent; }
+
+  html,body{
+    margin:0;
+    min-height:100%;
+    background:
+      radial-gradient(60% 45% at 18% -6%, rgba(124,92,255,0.20) 0%, transparent 60%),
+      radial-gradient(50% 40% at 100% 100%, rgba(76,52,166,0.18) 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+  }
+
+  .wrap{
+    min-height:100dvh;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:56px 24px 40px;
+  }
+
+  form{
+    width:100%;
+    max-width:360px;
+  }
+
+  .logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:38px;
+  }
+  .logo .mark{
+    width:34px; height:34px;
+    border-radius:10px;
+    background:linear-gradient(135deg, var(--accent), #4b32c9);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 4px 16px rgba(124,92,255,0.35);
+    flex:0 0 auto;
+  }
+  .logo .mark img{ width:100%; height:100%; object-fit:cover; }
+  .logo .word{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:21px;
+    letter-spacing:0.2px;
+  }
+
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:26px;
+    font-weight:700;
+    text-align:center;
+    margin:0 0 8px;
+    letter-spacing:0.2px;
+  }
+  .subtitle{
+    text-align:center;
+    color:var(--ink-dim);
+    font-size:14px;
+    margin:0 0 34px;
+  }
+
+  .field{ margin-bottom:20px; }
+  .field label{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--ink-dim);
+    margin-bottom:8px;
+  }
+  .field label .req{ color:var(--danger); font-weight:700; }
+
+  .input-shell{
+    position:relative;
+    display:flex;
+    align-items:center;
+  }
+
+  input[type="text"],
+  input[type="password"]{
+    width:100%;
+    padding:13px 14px;
+    border-radius:10px;
+    border:1.5px solid var(--field-border);
+    background:var(--field-bg);
+    color:var(--ink);
+    font-size:14.5px;
+    font-family:'Inter', sans-serif;
+    outline:none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  input::placeholder{ color:var(--ink-faint); }
+  input:focus{
+    border-color:var(--field-border-focus);
+    box-shadow:0 0 0 3px var(--accent-soft);
+  }
+
+  .forgot{
+    display:inline-block;
+    margin-top:10px;
+    color:var(--accent);
+    font-size:13.5px;
+    font-weight:600;
+    text-decoration:none;
+  }
+  .forgot:hover{ color:var(--accent-hover); text-decoration:underline; }
+
+  .submit{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    background:var(--accent);
+    color:#fff;
+    font-size:15px;
+    font-weight:700;
+    font-family:'Inter', sans-serif;
+    cursor:pointer;
+    margin-top:24px;
+    transition: background 0.15s ease, transform 0.05s ease;
+  }
+  .submit:hover{ background:var(--accent-hover); }
+  .submit:active{ transform:translateY(1px); }
+
+  .switch{
+    text-align:center;
+    color:var(--ink-faint);
+    font-size:13.5px;
+    margin-top:18px;
+  }
+  .switch a{
+    color:var(--accent);
+    font-weight:600;
+    text-decoration:none;
+  }
+  .switch a:hover{ text-decoration:underline; }
+
+  @media (min-width: 480px){
+    .wrap{ align-items:center; padding-top:24px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <form onsubmit="return false;">
+      <div class="logo">
+        <span class="mark">
+          <img src="https://github.com/prhub-official-site/raw/main/logofile.png" alt="Lumen Logo">
+        </span>
+        <span class="word">Lumen</span>
+      </div>
+
+      <h1>おかえりなさい！</h1>
+      <p class="subtitle">またお会いしましたね！</p>
+
+      <div class="field">
+        <label>メールアドレスまたは電話番号 <span class="req">*</span></label>
+        <div class="input-shell">
+          <input type="text" autocomplete="username" autofocus>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:8px;">
+        <label>パスワード <span class="req">*</span></label>
+        <div class="input-shell">
+          <input id="pw" type="password" autocomplete="current-password">
+        </div>
+        <a href="#" class="forgot">パスワードをお忘れですか？</a>
+      </div>
+
+      <button type="submit" class="submit">ログイン</button>
+
+      <p class="switch">アカウントが必要ですか？ <a href="#">登録</a></p>
+    </form>
+  </div>
+</body>
+</html>
